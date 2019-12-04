@@ -18,8 +18,13 @@
   <view class="P-indexCates">
 
   </view>
-  <view class="P-indexProducts">
+  <view class="P-indexProducts" wx:if="{{products && products.length}}">
       <!-- 商品项组件  -->
-      <view class="M-item"></view>
+      <view class="M-item" wx:for="{{products}}" wx:for-item="product" wx:key="id" wx:for-index="index">
+        <product item="{{product}}"></product>
+      </view>
+  </view>
+  <view class="P-indexProductsEmpty" hidden="{{!products || !products.length}}">
+   暂无商品
   </view>
 </VIEW>

@@ -7,7 +7,37 @@ Page({
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    products:[
+      {
+        id: 1,
+        product_name: "固本堂手工东阿阿胶固体原糕阿胶片月子补身女人宝",
+        product_pic: "",
+        sale_price: 177,
+        out: 1320
+      },
+      {
+        id: 2,
+        product_name: "固本堂手工东阿阿胶固体原糕阿胶片月子补身女人宝",
+        product_pic: "",
+        sale_price: 196,
+        out: 27
+      },
+      {
+        id: 3,
+        product_name: "固本堂手工东阿阿胶固体原糕阿胶片月子补身女人宝",
+        product_pic: "",
+        sale_price: 388,
+        out: 100
+      },
+      {
+        id: 4,
+        product_name: "固本堂手工东阿阿胶固体原糕阿胶片月子补身女人宝",
+        product_pic: "",
+        sale_price: 398,
+        out: 6
+      }
+    ]
   },
   //事件处理函数
   bindViewTap: function() {
