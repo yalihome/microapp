@@ -1,0 +1,26 @@
+/* components/cards/product/product.wxss */
+.M-product{
+    width: 100%;
+}
+.M-productPic{
+    height: 100rpx;
+}
+.M-productDesc{
+    /* 2行缩略 */
+    line-height: 44rpx;
+    height: 44rpx;
+    font-size: 28rpx;
+}
+.M-productDetail{
+    display: flex;
+}
+.M-productDetail view{
+    flex: 1;
+    font-size: 24rpx;
+    line-height: 40rpx;
+    height: 40rpx;
+    color: gray;
+}
+.M-productDetail [data-type="out"]{
+    text-align: right;
+}

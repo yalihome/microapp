@@ -1,0 +1,16 @@
+/* components/cards/log/log.wxss */
+.M-log{
+    display: flex;
+}
+.M-log [data-type="desc"],.M-log [data-type="time"]{
+    height: 80rpx;
+    line-height: 80rpx;
+}
+.M-log [data-type="desc"]{
+    flex: 1;
+}
+
+.M-log [data-type="time"]{
+    color: gray;
+    font-size: 24rpx;
+}

@@ -1,0 +1,6 @@
+<!--components/cards/log/log.wxml-->
+<view class="M-log" bindtap="doSomething">
+    <view data-type="desc">{{item.desc}}</view>
+    <view data-type="time">{{item.create_time}}</view>
+    <view data-type="close"></view>
+</view>

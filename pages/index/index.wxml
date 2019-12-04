@@ -11,14 +11,15 @@
     <text class="user-motto">{{motto}}</text>
   </view>
 </view> -->
-<view class="P-index">
+<VIEW class="P-index">
   <view class="P-indexBanner">
     <!-- 轮播组件 -->
   </view>
   <view class="P-indexCates">
 
   </view>
-  <view class="P-indexproducts">
+  <view class="P-indexProducts">
       <!-- 商品项组件  -->
+      <view class="M-item"></view>
   </view>
-</view>
+</VIEW>
