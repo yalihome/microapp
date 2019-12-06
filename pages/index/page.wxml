@@ -21,7 +21,7 @@
   <view class="P-indexProducts" wx:if="{{products && products.length}}">
       <!-- 商品项组件  -->
       <view class="M-item" wx:for="{{products}}" wx:for-item="product" wx:key="id" wx:for-index="index">
-        <product item="{{product}}"></product>
+        <product item="{{product}}" index="{{index}}"></product>
       </view>
   </view>
   <view class="P-indexProductsEmpty" hidden="{{!products || !products.length}}">

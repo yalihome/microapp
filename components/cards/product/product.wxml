@@ -1,11 +1,11 @@
 <!--components/cards/product/product.wxml-->
-<view class="M-product">
+<view class="M-product" bindtap="onItem" data-index="{{index}}" id="product">
     <view class="M-productPic">
         <image src="{{item.product_pic}}"></image>
     </view>
     <view class="M-productDesc">{{item.product_name}}</view>
     <view class="M-productDetail">
-        <view data-type="price">￥{{item.sale_price}}</view>
+        <view data-type="price">￥{{item.sale_price||"0.00"}}</view>
         <view data-type="out">已售{{item.out||0}}件</view>
     </view>
 </view>

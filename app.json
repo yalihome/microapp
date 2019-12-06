@@ -1,6 +1,6 @@
 {
   "pages": [
-    "pages/index/index",
+    "pages/index/page",
     "pages/logs/logs"
   ],
   "window": {
@@ -12,7 +12,7 @@
   "tabBar": {
     "list": [
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/index/page",
         "text": "首页"
       },
       {
