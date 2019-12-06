@@ -5,6 +5,10 @@
   align-items: center;
 }
 
+.P-index{
+  height: vh;
+}
+
 .userinfo-avatar {
   width: 128rpx;
   height: 128rpx;
@@ -29,6 +33,34 @@
   flex-flow: wrap;
   padding: 20rpx;
   width: calc(vw - 40rpx);
+}
+
+.P-indexCates{
+  height: 20vh;
+  /* display: flex; */
+  /* align-items: center; */
+  padding-top: 20rpx;
+  border-bottom: 1px solid #e1e1e1;
+}
+
+.P-indexCates .M-item{
+  width: 100rpx;
+  text-align: center;
+  height: 50rpx;
+  line-height: 50rpx;
+  font-size: 28rpx;
+  border-bottom: 1px solid transparent;
+  margin-bottom: -1px;
+}
+
+.P-indexCates .M-item.act{
+  color: #f00;
+  border-bottom-color:  #f00;
+}
+
+.P-indexBanner{
+  height: 1vh;
+  background: rgba(0,0,0,.1);
 }
 
 .P-indexProducts .M-item{

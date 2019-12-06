@@ -15,9 +15,9 @@
   <view class="P-indexBanner">
     <!-- 轮播组件 -->
   </view>
-  <view class="P-indexCates">
-
-  </view>
+  <scroll-view class="P-indexCates" scroll-y="true" enable-flex="true" scroll-with-animation="true">
+    <view class="M-item {{curCate==index?'act':''}}" wx:for="{{cates}}" wx:for-item="item" wx:for-index="index" wx:key="id" data-index="{{index}}" bindtap="selectCate">{{item.name}}</view>
+  </scroll-view>
   <view class="P-indexProducts" wx:if="{{products && products.length}}">
       <!-- 商品项组件  -->
       <view class="M-item" wx:for="{{products}}" wx:for-item="product" wx:key="id" wx:for-index="index">

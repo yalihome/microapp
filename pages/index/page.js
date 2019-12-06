@@ -37,7 +37,38 @@ Page({
         sale_price: 398,
         out: 6
       }
-    ]
+    ],
+    "cates":[
+      {
+        name:"全部",
+        id:1
+      },
+      {
+        name:"美妆",
+        id:2
+      },
+      {
+        name:"服装",
+        id:3
+      },
+      {
+        name:"箱包",
+        id:4
+      },
+      {
+        name:"水果",
+        id:5
+      },
+      {
+        name:"母婴",
+        id:6
+      },
+      {
+        name:"男士",
+        id:7
+      },
+    ],
+    curCate: 0
   },
   //事件处理函数
   bindViewTap: function() {
@@ -45,7 +76,9 @@ Page({
       url: '../logs/logs'
     })
   },
-  onLoad: function () {
+  onLoad: function (o) {
+    console.log(o);
+    console.log("page 的 load 方法执行了");
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -73,6 +106,21 @@ Page({
       })
     }
   },
+  onShow:function(o){
+    console.log(o);
+    console.log("page 的 show 方法执行了");
+  },
+  onHide:function(o){
+    console.log("page 的 hide 方法执行了")
+  },
+  onReady:function(o){
+    wx.setNavigationBarTitle({
+      title:"微商城"
+    })
+    console.log(o);
+    console.log("page 的 ready 方法执行了");
+    console.log(this.route);
+  },
   getUserInfo: function(e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo;
@@ -80,5 +128,24 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+  },
+  selectCate(e){
+    let {index} = e.currentTarget.dataset;
+    this.setData({
+      curCate: index
+    });
+    console.log(Page.route);
+  },
+  onShareAppMessage(o){
+    console.log(o);
+    console.log("调用了分享");
+    return {
+      title: "简单的微商城",
+      path: "pages/logs/logs",
+      imageUrl: "http://cdn.dev.terran.wxpai.cn/upload/sandbox/da62c67b-b0d6-4396-b5a1-33f1a55efb55.png"
+    }
+  },
+  onPageScroll(e){
+      // console.log(e);
   }
 })
