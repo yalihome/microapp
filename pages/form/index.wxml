@@ -35,7 +35,20 @@
 
     <view>input</view>
     <view>
-        <input></input>
+        <label>数字输入框：</label>
+        <input type="number" placeholder="数字"></input>
+    </view>
+    <view>
+        <label>文本输入框：</label>
+        <input type="text" placeholder="文本"></input>
+    </view>
+    <view>
+        <label>身份证号输入框：</label>
+        <input type="idcard" placeholder="身份证号"></input>
+    </view>
+    <view>
+        <label>浮点数输入框：</label>
+        <input type="digit" placeholder="浮点数"></input>
     </view>
 
     <view>button</view>
@@ -61,6 +74,7 @@
 
     <view>picker</view>
     <view>
-
+        <label>普通下拉</label>
+        <picker mode="selector" range="{{countries}}" range-key="name" value="{{selectedCountry}}" bindchange="chanePicker"></picker>
     </view>
 </view>

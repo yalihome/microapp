@@ -50,7 +50,8 @@ Page({
       }
     ],
     "textVal": "",
-    "pic": "http://cdn.dev.terran.wxpai.cn/upload/sandbox/cd0a79e8-1109-482d-a6dc-d55be7e9a1ed.jpg"
+    "pic": "http://cdn.dev.terran.wxpai.cn/upload/sandbox/cd0a79e8-1109-482d-a6dc-d55be7e9a1ed.jpg",
+    "selectedCountry": ""
   },
 
   /**
@@ -140,5 +141,8 @@ Page({
   },
   opensetting(e){
     console.log(e);
+  },
+  chanePicker(e){
+    console.log(e.detail);
   }
 })
