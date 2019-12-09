@@ -35,7 +35,7 @@
 
     <view>input</view>
     <view>
-
+        <input></input>
     </view>
 
     <view>button</view>
