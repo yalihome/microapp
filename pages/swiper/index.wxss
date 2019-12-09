@@ -1,0 +1,5 @@
+/* pages/swiper/index.wxss */
+.P-swiperBanner,.P-swiperBanner swiper,.P-swiperBanner image{
+    width: 100%;
+    height: 300rpx;
+}

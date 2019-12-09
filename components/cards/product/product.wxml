@@ -1,7 +1,7 @@
 <!--components/cards/product/product.wxml-->
 <view class="M-product" bindtap="onItem" data-index="{{index}}" id="product">
     <view class="M-productPic">
-        <image src="{{item.product_pic}}"></image>
+        <image src="{{item.product_pic}}" mode="widthFix"></image>
     </view>
     <view class="M-productDesc">{{item.product_name}}</view>
     <view class="M-productDetail">

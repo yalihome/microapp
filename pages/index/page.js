@@ -8,70 +8,97 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    products:[
+    products: [
       {
         id: 1,
         product_name: "固本堂手工东阿阿胶固体原糕阿胶片月子补身女人宝",
-        product_pic: "",
+        product_pic: "http://cdn.dev.terran.wxpai.cn/upload/sandbox/cd0a79e8-1109-482d-a6dc-d55be7e9a1ed.jpg",
         sale_price: 177,
         out: 1320
       },
       {
         id: 2,
         product_name: "固本堂手工东阿阿胶固体原糕阿胶片月子补身女人宝",
-        product_pic: "",
+        product_pic: "http://cdn.dev.terran.wxpai.cn/upload/sandbox/15a9459e-0e68-4f11-b71b-aaabefe4c2ec.jpg",
         sale_price: 196,
         out: 27
       },
       {
         id: 3,
         product_name: "固本堂手工东阿阿胶固体原糕阿胶片月子补身女人宝",
-        product_pic: "",
+        product_pic: "http://cdn.dev.terran.wxpai.cn/upload/sandbox/81dad6fa-336e-4f7d-8b39-23081c410908.jpg",
         sale_price: 388,
         out: 100
       },
       {
         id: 4,
         product_name: "固本堂手工东阿阿胶固体原糕阿胶片月子补身女人宝",
-        product_pic: "",
+        product_pic: "http://cdn.dev.terran.wxpai.cn/upload/sandbox/81dad6fa-336e-4f7d-8b39-23081c410908.jpg",
         sale_price: 398,
         out: 6
       }
     ],
-    "cates":[
+    "cates": [
       {
-        name:"全部",
-        id:1
+        name: "全部",
+        id: 1
       },
       {
-        name:"美妆",
-        id:2
+        name: "美妆",
+        id: 2
       },
       {
-        name:"服装",
-        id:3
+        name: "服装",
+        id: 3
       },
       {
-        name:"箱包",
-        id:4
+        name: "箱包",
+        id: 4
       },
       {
-        name:"水果",
-        id:5
+        name: "水果",
+        id: 5
       },
       {
-        name:"母婴",
-        id:6
+        name: "母婴",
+        id: 6
       },
       {
-        name:"男士",
-        id:7
+        name: "男士",
+        id: 7
+      },
+      {
+        name: "家具",
+        id: 7
+      },
+      {
+        name: "装修",
+        id: 7
+      },
+      {
+        name: "热门",
+        id: 7
+      },
+      {
+        name: "促销",
+        id: 7
+      },
+      {
+        name: "品牌",
+        id: 7
       },
     ],
-    curCate: 0
+    "curCate": 0,
+    "banners": [
+      "http://cdn.dev.terran.wxpai.cn/upload/sandbox/cd0a79e8-1109-482d-a6dc-d55be7e9a1ed.jpg",
+      "http://cdn.dev.terran.wxpai.cn/upload/sandbox/15a9459e-0e68-4f11-b71b-aaabefe4c2ec.jpg",
+      "http://cdn.dev.terran.wxpai.cn/upload/sandbox/81dad6fa-336e-4f7d-8b39-23081c410908.jpg"
+    ],
+    "indColor":"blue",
+    "activeIndColor":"#d1d1d1"
   },
   //事件处理函数
-  bindViewTap: function() {
+  bindViewTap: function () {
     wx.navigateTo({
       url: '../logs/logs'
     })
@@ -84,7 +111,7 @@ Page({
         userInfo: app.globalData.userInfo,
         hasUserInfo: true
       })
-    } else if (this.data.canIUse){
+    } else if (this.data.canIUse) {
       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
       // 所以此处加入 callback 以防止这种情况
       app.userInfoReadyCallback = res => {
@@ -106,22 +133,22 @@ Page({
       })
     }
   },
-  onShow:function(o){
+  onShow: function (o) {
     console.log(o);
     console.log("page 的 show 方法执行了");
   },
-  onHide:function(o){
+  onHide: function (o) {
     console.log("page 的 hide 方法执行了")
   },
-  onReady:function(o){
+  onReady: function (o) {
     wx.setNavigationBarTitle({
-      title:"微商城"
+      title: "微商城"
     })
     console.log(o);
     console.log("page 的 ready 方法执行了");
     console.log(this.route);
   },
-  getUserInfo: function(e) {
+  getUserInfo: function (e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo;
     this.setData({
@@ -129,14 +156,14 @@ Page({
       hasUserInfo: true
     })
   },
-  selectCate(e){
-    let {index} = e.currentTarget.dataset;
+  selectCate(e) {
+    let { index } = e.currentTarget.dataset;
     this.setData({
       curCate: index
     });
     console.log(Page.route);
   },
-  onShareAppMessage(o){
+  onShareAppMessage(o) {
     console.log(o);
     console.log("调用了分享");
     return {
@@ -145,7 +172,17 @@ Page({
       imageUrl: "http://cdn.dev.terran.wxpai.cn/upload/sandbox/da62c67b-b0d6-4396-b5a1-33f1a55efb55.png"
     }
   },
-  onPageScroll(e){
-      // console.log(e);
+  onPageScroll(e) {
+    // console.log(e);
+  },
+  changeSwiper(e){
+    // console.log(e);
+  },
+  preview(e){
+    let {src} = e.currentTarget.dataset;
+    console.log(src);
+    wx.previewImage({
+      urls:[src]
+    })
   }
 })

@@ -1,0 +1,23 @@
+<!--pages/swiper/index.wxml-->
+<view class="P-swiper">
+    <view class="P-swiperBanner">
+        <swiper autoplay="{{autoplay}}" indicator-dots="{{hasDots}}" duration="{{duration}}" interval="{{interval}}">
+            <swiper-item wx:for="{{banners}}" wx:for-item="banner" wx:for-index="index" wx:key="*this">
+                <image src="{{banner}}" mode="widthFix"></image>
+            </swiper-item>
+        </swiper>
+    </view>
+
+    <view class="P-swiperConfig">
+        <view></view>
+        <view></view>
+        <view>幻灯片切换时长(ms)</view>
+        <view>
+            <slider min="500" max="2000" disabled="true" value="{{duration}}" show-value="true" data-type="duration" bindchange="changeSlider"></slider>
+        </view>
+        <view>自动播放间隔时长(ms)</view>
+        <view>
+            <slider min="2000" max="10000" block-size="12" active-color="red" value="{{interval}}" show-value="true" data-type="interval"  bindchange="changeSlider"></slider>
+        </view>
+    </view>
+</view>

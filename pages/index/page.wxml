@@ -13,10 +13,19 @@
 </view> -->
 <VIEW class="P-index">
   <view class="P-indexBanner">
+    <swiper indicator-dots="true" bindchange="changeSwiper" interval="2000" autoplay="true" indicator-color="{{indColor}}" circular="true" indicator-active-color="{{activeIndColor}}" previous-margin="50rpx" next-margin="50rpx">
+      <block wx:for="{{banners}}" wx:for-item="banner" wx:for-index="index" wx:key="*this">
+          <swiper-item>
+              <image src="{{banner}}" mode="widthFix" bindtap="preview" data-src="{{banner}}"></image>
+            </swiper-item>
+      </block>
+    </swiper>
     <!-- 轮播组件 -->
   </view>
-  <scroll-view class="P-indexCates" scroll-y="true" enable-flex="true" scroll-with-animation="true">
-    <view class="M-item {{curCate==index?'act':''}}" wx:for="{{cates}}" wx:for-item="item" wx:for-index="index" wx:key="id" data-index="{{index}}" bindtap="selectCate">{{item.name}}</view>
+  <scroll-view class="P-indexCates" scroll-x="true" enable-flex="true" scroll-with-animation="true">
+    <!-- <view class="P-indexCatesWrap"> -->
+        <view class="M-item {{curCate==index?'act':''}}" wx:for="{{cates}}" wx:for-item="item" wx:for-index="index" wx:key="id" data-index="{{index}}" bindtap="selectCate">{{item.name}}</view>
+    <!-- </view> -->
   </scroll-view>
   <view class="P-indexProducts" wx:if="{{products && products.length}}">
       <!-- 商品项组件  -->

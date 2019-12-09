@@ -36,11 +36,15 @@
 }
 
 .P-indexCates{
-  height: 20vh;
-  /* display: flex; */
-  /* align-items: center; */
+  /* height: 20vh; */
+  width: 100%;
+  display: flex;
+  align-items: center;
   padding-top: 20rpx;
   border-bottom: 1px solid #e1e1e1;
+}
+.P-indexCatesWrap{
+  
 }
 
 .P-indexCates .M-item{
@@ -59,10 +63,13 @@
 }
 
 .P-indexBanner{
-  height: 1vh;
+  height: 300rpx;
   background: rgba(0,0,0,.1);
 }
-
+.P-indexBanner swiper,.P-indexBanner swiper image{
+  width: 100%;
+  height: 300rpx;
+}
 .P-indexProducts .M-item{
   /* 100%是相对于父元素 */
   /* 为什么内部卡片的边框会被盖住了一部分？难以理解  */

@@ -1,0 +1,66 @@
+<!--pages/form/index.wxml-->
+<view class="P-form">
+    <view>radio / radio-group</view>
+    <view>
+        <!-- 为什么有一个默认选中 -->
+        <radio-group bindchange="inputChange" data-type="radio">
+            <block wx:for="{{countries}}" wx:for-item="country" wx:for-index="index" wx:key="*this">
+                <radio id="{{country.name}}" value="{{country.val}}" disabled="{{country.disabled}}" checked="{{country.checked}}">
+                </radio>
+                <label for="{{country.name}}">{{country.name}}</label>
+            </block>
+        </radio-group>
+    </view>
+
+    <view>checkbox / checkbox-group</view>
+    <view>label 的for是radio/checkbox的id</view>
+    <view>
+        <checkbox-group bindchange="inputChange" data-type="checkbox">
+            <label wx:for="{{hobbies}}" wx:for-item="hobby" wx:for-index="index" wx:key="*this">
+                <checkbox value="{{hobby.val}}" checked="{{hobby.checked}}" disabled="{{hobby.disabled}}">
+                    <text>{{hobby.name}}</text>
+                </checkbox>
+            </label>
+        </checkbox-group>
+
+
+    </view>
+
+    <view>switch</view>
+    <view>
+        <switch bindchange="inputChange" data-type="switch">
+            <text>同意条款吗？</text>
+        </switch>
+    </view>
+
+    <view>input</view>
+    <view>
+
+    </view>
+
+    <view>button</view>
+    <view>
+        <button size="mini" type="primary" open-type="getUserInfo" bindgetuserinfo="getCurUserInfo">获取用户信息</button>
+        <button type="default" open-type="getPhoneNumber" bindgetphonenumber="getphonenumber">获取手机号</button>
+        <button type="warn" open-type="openSetting" bindopensetting="opensetting">打开授权设置页</button>
+        <button type="default" open-type="share">分享</button>
+        <button type="default" open-type="feedback">客服反馈</button>
+        <button type="default" open-type="contact">进入客服会话</button>
+    </view>
+
+    <view>textarea</view>
+    <view>
+        <textarea value="{{textVal}}" placeholder="限于30字以内" bindblur="inputChange" data-type="textarea"></textarea>
+        <button bindtap="changeTextarea">更改多文本输入框内容</button>
+    </view>
+
+    <view>editor</view>
+    <view>
+
+    </view>
+
+    <view>picker</view>
+    <view>
+
+    </view>
+</view>

@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/form/index",
+    "pages/swiper/index",
     "pages/index/page",
     "pages/logs/logs"
   ],
