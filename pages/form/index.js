@@ -1,58 +1,72 @@
 // pages/form/index.js
+var countries = [
+  {
+    name: "美国",
+    val: 1
+  },
+  {
+    name: "日本",
+    val: 2
+  },
+  {
+    name: "法国",
+    val: 3
+  },
+  {
+    name: "韩国",
+    val: 4
+  },
+  {
+    name: "德国",
+    val: 5
+  },
+  {
+    name: "中国",
+    val: 6
+  }
+];
+var hobbies = [
+  {
+    name: "登山",
+    val: 1
+  },
+  {
+    name: "看书",
+    val: 2
+  },
+  {
+    name: "运动",
+    val: 3
+  },
+  {
+    name: "绘画",
+    val: 4
+  }
+];
+var sexies = [
+  {
+    name: "男",
+    val: 1
+  },
+  {
+    name: "女",
+    val: 2
+  }
+];
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    countries: [
-      {
-        name: "美国",
-        val: 1
-      },
-      {
-        name: "日本",
-        val: 2
-      },
-      {
-        name: "法国",
-        val: 3
-      },
-      {
-        name: "韩国",
-        val: 4
-      },
-      {
-        name: "德国",
-        val: 5
-      },
-      {
-        name: "中国",
-        val: 6
-      }
-    ],
-    "hobbies": [
-      {
-        name: "登山",
-        val: 1
-      },
-      {
-        name: "看书",
-        val: 2
-      },
-      {
-        name: "运动",
-        val: 3
-      },
-      {
-        name: "绘画",
-        val: 4
-      }
-    ],
+    "countries": countries,
+    "hobbies": hobbies,
     "textVal": "",
     "pic": "http://cdn.dev.terran.wxpai.cn/upload/sandbox/cd0a79e8-1109-482d-a6dc-d55be7e9a1ed.jpg",
     "selectedCountry": "",
-    "selectedCountryIdx":""
+    "selectedCountryIdx": "",
+    "columnArr": [countries, hobbies, []],
+    "columnVal": [0, 0, 0]
   },
 
   /**
@@ -128,13 +142,26 @@ Page({
         console.log(e.detail);
         break;
       case "picker":
+        console.log("bindchange picker");
         console.log(e.detail);
         let val = e.detail.value;
         this.setData({
           selectedCountry: this.data.countries[val].name
         })
         break;
+      case "multi-picker":
+        console.log("bindchange multi-picker");
+        console.log(e.detail);
+        // let val = e.detail.value;
+        // this.setData({
+        //   selectedCountry: this.data.countries[val].name
+        // })
+        break;
     }
+  },
+  pickerColumnChange(e) {
+    console.log("plcker column change");
+    console.log(e);
   },
   changeTextarea(e) {
     this.setData({
