@@ -51,7 +51,8 @@ Page({
     ],
     "textVal": "",
     "pic": "http://cdn.dev.terran.wxpai.cn/upload/sandbox/cd0a79e8-1109-482d-a6dc-d55be7e9a1ed.jpg",
-    "selectedCountry": ""
+    "selectedCountry": "",
+    "selectedCountryIdx":""
   },
 
   /**
@@ -107,11 +108,11 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-      return {
-        title:"表单使用案例",
-        path:"/pages/form/index",
-        imageUrl: this.data.pic
-      }
+    return {
+      title: "表单使用案例",
+      path: "/pages/form/index",
+      imageUrl: this.data.pic
+    }
   },
   inputChange(e) {
     let { type } = e.currentTarget.dataset;
@@ -126,6 +127,13 @@ Page({
       case "switch":
         console.log(e.detail);
         break;
+      case "picker":
+        console.log(e.detail);
+        let val = e.detail.value;
+        this.setData({
+          selectedCountry: this.data.countries[val].name
+        })
+        break;
     }
   },
   changeTextarea(e) {
@@ -133,16 +141,16 @@ Page({
       "textVal": "test"
     })
   },
-  getCurUserInfo(e){
+  getCurUserInfo(e) {
     console.log(e);
   },
-  getphonenumber(e){
+  getphonenumber(e) {
     console.log(e);
   },
-  opensetting(e){
+  opensetting(e) {
     console.log(e);
   },
-  chanePicker(e){
+  chanePicker(e) {
     console.log(e.detail);
   }
 })

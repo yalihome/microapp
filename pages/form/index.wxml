@@ -74,7 +74,12 @@
 
     <view>picker</view>
     <view>
-        <label>普通下拉</label>
-        <picker mode="selector" range="{{countries}}" range-key="name" value="{{selectedCountry}}" bindchange="chanePicker"></picker>
+        <view class="M-row">
+            <label>普通下拉</label>
+            <view class="M-rowCon">
+                <picker mode="selector" range="{{countries}}" range-key="name" value="{{selectedCountryIdx}}" data-type="picker" bindchange="inputChange">请选择国家{{selectedCountry}}</picker>
+            </view>
+        </view>
+
     </view>
 </view>
