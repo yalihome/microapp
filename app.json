@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/richtext/index",
     "pages/picker/index",
     "pages/form/index",
     "pages/swiper/index",

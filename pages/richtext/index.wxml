@@ -1,0 +1,4 @@
+<view>
+    <view>富文本组件Parser的使用展示</view>
+    <parser html="{{html}}"></parser>
+</view>
