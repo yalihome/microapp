@@ -1,72 +1,33 @@
 // pages/form/index.js
-var countries = [
-  {
-    name: "美国",
-    val: 1
-  },
-  {
-    name: "日本",
-    val: 2
-  },
-  {
-    name: "法国",
-    val: 3
-  },
-  {
-    name: "韩国",
-    val: 4
-  },
-  {
-    name: "德国",
-    val: 5
-  },
-  {
-    name: "中国",
-    val: 6
-  }
-];
-var hobbies = [
-  {
-    name: "登山",
-    val: 1
-  },
-  {
-    name: "看书",
-    val: 2
-  },
-  {
-    name: "运动",
-    val: 3
-  },
-  {
-    name: "绘画",
-    val: 4
-  }
-];
-var sexies = [
-  {
-    name: "男",
-    val: 1
-  },
-  {
-    name: "女",
-    val: 2
-  }
-];
+const cons = require("../../components/common/consts");
+
+var students = ["刘杰刘杰刘杰刘杰刘杰刘杰刘杰刘杰刘杰刘杰刘杰刘杰刘杰刘杰刘杰刘杰刘杰刘杰刘杰", "刘月", "刘万富", "邓凤云"];
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    "countries": countries,
-    "hobbies": hobbies,
+    "cons.countries": cons.countries,
+    "cons.hobbies": cons.hobbies,
     "textVal": "",
     "pic": "http://cdn.dev.terran.wxpai.cn/upload/sandbox/cd0a79e8-1109-482d-a6dc-d55be7e9a1ed.jpg",
     "selectedCountry": "",
     "selectedCountryIdx": "",
-    "columnArr": [countries, hobbies, []],
-    "columnVal": [0, 0, 0]
+    "columnArr": [cons.countries, cons.hobbies, cons.sexies],
+    "columnVal": [0, 0, 0],
+    "curStudent": 0,
+    "students": students,
+    "curTime": "12:35",
+    "curDate": "2019-12-11",
+    "curRegion": ["广东省", "广州市", "天河区"],
+    "curRegionStr": "",
+    readOnly: false,
+    placeholder: "限于30字以内",
+    showImgSize: true,
+    showImgTb: true,
+    editorCon: "",
+    contentLen: 0
   },
 
   /**
@@ -80,7 +41,8 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    //获取编辑器组件
+    console.log(this.globalData);
   },
 
   /**
@@ -146,7 +108,7 @@ Page({
         console.log(e.detail);
         let val = e.detail.value;
         this.setData({
-          selectedCountry: this.data.countries[val].name
+          selectedCountry: this.data.cons.countries[val].name
         })
         break;
       case "multi-picker":
@@ -154,8 +116,40 @@ Page({
         console.log(e.detail);
         // let val = e.detail.value;
         // this.setData({
-        //   selectedCountry: this.data.countries[val].name
+        //   selectedCountry: this.data.cons.countries[val].name
         // })
+        break;
+      case "string-picker":
+        console.log("bindchange string-picker");
+        console.log(e.detail);
+        console.log(this.data.curStudent)
+        // let val = e.detail.value;
+        // this.setData({
+        //   selectedCountry: this.data.cons.countries[val].name
+        // })
+        break;
+      case "time":
+        console.log("bindchange time");
+        console.log(e.detail);
+        this.setData({
+          curTime: e.detail.value
+        })
+        break;
+      case "date":
+        console.log("bindchange date");
+        console.log(e.detail);
+        this.setData({
+          curDate: e.detail.value
+        })
+        break;
+      case "region":
+        console.log("bindchange region");
+        console.log(e.detail);
+        this.setData({
+          curRegion: e.detail.value,
+          curRegionStr: e.detail.value.join("")
+        })
+        console.log(this.data.curRegion);
         break;
     }
   },
@@ -179,5 +173,51 @@ Page({
   },
   chanePicker(e) {
     console.log(e.detail);
+  },
+  editorReady(e) {
+    console.log("编辑器初始化完成");
+    console.log(e);
+    let {id} = e.currentTarget.dataset;
+    this.createSelectorQuery().select("#"+id).context((res) => {
+      this[id] = res.context;
+      console.log(this[id]);
+    }).exec();
+  },
+  editorInput(e) {
+    console.log("编辑器输入");
+    console.log(e);
+    //实时更新内容，并且显示输入的文案长度，貌似小程序端是可以输入表情的，肿么破。。。
+    //todo 输入一下就会失去焦点，这是什么问题：貌似是获取编辑器输入内容的同时设置别的编辑器的内容引起的
+    this.editor.getContents({
+      success: (res) => {
+        console.log("富文本编辑器内容获取")
+        console.log(res);
+        this.setData({
+          editorCon: res.html,
+          contentLen: res.text.length
+        });
+        this.editor1.setContents({
+          html: this.data.editorCon,
+          success: (res) => {
+            console.log("set editor1's content succeed");
+          },
+          fail: (res) => {
+            console.log("set editor1's content failed");
+          }
+        })
+      }
+    })
+  },
+  editorBlur(e) {
+    console.log("编辑器失去焦点");
+    console.log(e);
+  },
+  editorFocus(e) {
+    console.log("编辑器聚焦");
+    console.log(e);
+  },
+  editorStatusChange(e) {
+    console.log("通过 Context 方法改变了编辑器内部样式");
+    console.log(e);
   }
 })

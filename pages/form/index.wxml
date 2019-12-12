@@ -1,5 +1,12 @@
 <!--pages/form/index.wxml-->
 <view class="P-form">
+    <view>富文本编辑器</view>
+    <view>
+        <editor data-id="editor" id="editor" read-only="{{readOnly}}" placeholder="{{placeholder}}" show-img-size="{{showImgSize}}" show-img-toolbar="{{showImgTb}}" bindready="editorReady"
+        bindfocus="editorFocus" bindblur="editorBlur" bindinput="editorInput" bindstatuschange="editorStatusChange"></editor>
+    </view>
+    <editor data-id="editor1" read-only="true" id="editor1" bindready="editorReady"></editor>
+    <view>{{contentLen}}</view>
     <view>radio / radio-group</view>
     <view>
         <!-- 为什么有一个默认选中 -->
@@ -67,25 +74,52 @@
         <button bindtap="changeTextarea">更改多文本输入框内容</button>
     </view>
 
-    <view>editor</view>
-    <view>
-
-    </view>
-
     <view>picker</view>
     <view>
+        <view class="M-row">
+            <label>普通字符串数组下拉</label>
+            <view class="M-rowCon">
+                <picker mode="selector" range="{{students}}" value="{{curStudent}}" data-type="string-picker" bindchange="inputChange">请选择学生:{{selectedCountry}}</picker>
+            </view>
+        </view>
+
         <view class="M-row">
             <label>普通下拉</label>
             <view class="M-rowCon">
                 <picker mode="selector" range="{{countries}}" range-key="name" value="{{selectedCountryIdx}}" data-type="picker" bindchange="inputChange">请选择国家{{selectedCountry}}</picker>
             </view>
         </view>
+
         <view class="M-row">
-            <label>多列下拉</label>
+            <label>3列下拉</label>
             <view class="M-rowCon">
-                <!-- range-key一定要一致吗？ -->
-                <picker mode="multiSelector" range-key="name" range="{{columnArr}}" value="{{columnVal}}" data-type="multi-picker" bindcolumnchange="pickerColumnChange" bindchange="inputChange">当前选择：{{columnArr[0][columnVal[0]]}},{{columnArr[1][columnVal[1]]}}</picker>
+                <!-- range-key一定要一致吗？————是的 -->
+                <picker mode="multiSelector" range-key="name" range="{{columnArr}}" value="{{columnVal}}" data-type="multi-picker" bindcolumnchange="pickerColumnChange"
+                    bindchange="inputChange">当前选择：{{columnArr[0][columnVal[0]].name}},{{columnArr[1][columnVal[1]].name}},{{columnArr[2][columnVal[2]].name}}</picker>
             </view>
         </view>
+
+        <view class="M-row">
+            <label>时间选择器</label>
+            <view class="M-rowCon">
+                <picker mode="time" start="01:00" end="24:59" data-type="time" bindchange="inputChange" value="{{curTime}}">当前时间：{{curTime}}</picker>
+            </view>
+        </view>
+
+        <view class="M-row">
+            <label>日期下拉</label>
+            <view class="M-rowCon">
+                <picker mode="date" start="1900-01-01" end="2019-12-12" value="{{curDate}}" data-type="date" bindchange="inputChange" fields="day">当前日期：{{curDate}}</picker>
+            </view>
+        </view>
+
+        <view class="M-row">
+            <label>区域下拉</label>
+            <view class="M-rowCon">
+                    <!-- custom-item="全部" -->
+                <picker mode="region"  value="{{curRegion}}" data-type="region" bindchange="inputChange">当前区域：{{curRegionStr}}</picker>
+            </view>
+        </view>
+
     </view>
 </view>

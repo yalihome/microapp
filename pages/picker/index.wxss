@@ -1,0 +1,16 @@
+.picker-view-indicator{
+    /* background-color: red;
+    height: 50rpx;
+    color: #fff;
+    opacity: .3; */
+}
+.picker-view-mask{
+  /* background: blue;
+  opacity: 0.3; */
+}
+picker-view-column view{
+    line-height: 60rpx;
+    height: 50rpx;
+    /* border-bottom: 1px solid #e1e1e1; */
+    text-align: center;
+}

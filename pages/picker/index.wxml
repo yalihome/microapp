@@ -1,0 +1,13 @@
+<view class="P-picker">
+    <view>picker-view 和picker-view-column实例</view>
+    <view>
+        <picker-view bindchange="selectChange" bindpickstart="pickstart" bindpickend="pickend" indicator-class="picker-view-indicator" mask-class="picker-view-mask" value="{{pickerVal}}" style="width: 100%; height: 300rpx;">
+            <picker-view-column>
+                <view wx:for="{{countries}}" wx:for-item="country" wx:for-index="index" wx:key="*this" data-item="{{country}}">{{country.name}}</view>
+            </picker-view-column>
+            <picker-view-column>
+                <view wx:for="{{hobbies}}" wx:for-item="hobby" wx:for-index="index" wx:key="*this" data-item="{{hobby}}">{{hobby.name}}</view>
+            </picker-view-column>
+        </picker-view>
+    </view>
+</view>
