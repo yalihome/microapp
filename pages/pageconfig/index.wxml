@@ -1,0 +1,9 @@
+<view class="p-config">
+    <view class="p-configHead">提示</view>
+    <view>
+        <view class="M-item" wx:for="{{items}}" wx:for-item="item" wx:for-index="index" wx:key="*this">
+            {{item}}
+        </view>
+    </view>
+    <view class="p-configFoot">版权声明</view>
+</view>

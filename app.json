@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/pageconfig/index",
     "pages/picker/index",
     "pages/form/index",
     "pages/swiper/index",

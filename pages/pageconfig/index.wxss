@@ -1,0 +1,18 @@
+.p-configHead,.p-configFoot{
+    text-align: center;
+    height: 60rpx;
+    line-height: 60rpx;
+}
+.p-configHead{
+    border-bottom: 1px solid 1rpx;
+}
+.p-configFoot{
+    border-top: 1px solid 1rpx;
+}
+scroll-view{
+    height: 200rpx;
+}
+.M-item{
+    height: 60rpx;
+    line-height: 60rpx;
+}
